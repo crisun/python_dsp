@@ -1,4 +1,4 @@
-# python_dsp
+# DSP using Python
 ## 一、基本序列(Basic Sequence)
 1.单位抽样序列 $\delta(n)$
    
