@@ -1,5 +1,5 @@
 # DSP using Python
-Python 的numpy、matplotlib、pandas、scipy、sympy等库的组合使用，可以实现matlab能实现的多数功能
+Python 的numpy、scipy、matplotlib、sympy、pandas等库的组合使用，可以实现matlab能实现的多数功能
 
 #### Numpy - 数组和矩阵等(Base N-dimensional array package)
 官方网站
