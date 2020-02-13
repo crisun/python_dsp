@@ -21,4 +21,17 @@ $$u(n) = \begin{cases}1&,\ n \geq0\\0&,\ n<0\end{cases}$$
   y[np.where(n>=0)] = 1
   ...
 ```
-    
+
+3.正弦序列 $sin(n)$
+
+例如 
+$$y(n)=sin(\frac{\pi}{4}n)$$
+其中周期
+$$\omega=\frac{2\pi}{\frac{\pi}{4}}=8$$
+即以8点为一个周期进行循环
+```
+...
+  n = np.arange(-8,9)
+  y = np.sin(math.pi/4*n)
+...
+```
