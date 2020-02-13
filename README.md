@@ -1,40 +1,38 @@
 # DSP using Python
-## 一、基本序列(Basic Sequence)
-1.单位抽样序列 $\delta(n)$
-   
-$$\delta(n) =\begin{cases} 1& ,\ n=0\\ 0&,\ n\not ={0} \end{cases}$$
+Python 的numpy、matplotlib、pandas、scipy、sympy等库的组合使用，可以实现matlab能实现的多数功能
 
-```
-  ...
-  n = np.arange(-5,6)
-  y = np.zeros(np.size(n))
-  y[np.where(n==0)] = 1
-  ...
-```
-![avatar](\Basic&#32;Sequence/fig/unit_sample.png)
+#### Numpy - 数组和矩阵等(Base N-dimensional array package)
+官方网站
+https://numpy.org/
 
-2.单位阶跃序列 $u(n)$
-$$u(n) = \begin{cases}1&,\ n \geq0\\0&,\ n<0\end{cases}$$
-```
-  ...
-  n = np.arange(-5,6)
-  y = np.zeros(np.size(n))
-  y[np.where(n>=0)] = 1
-  ...
-```
-![avatar](\Basic&#32;Sequence/fig/unit_step.png)
+官方教程
+https://numpy.org/devdocs/user/quickstart.html
 
-3.正弦序列 $sin(n)$
+#### Scipy - 科学计算(Fundamental library for scientific computing)
+官方网站
+https://www.scipy.org/
 
-例如 
-$$y(n)=sin(\frac{\pi}{4}n)$$
-其中周期
-$$\omega=\frac{2\pi}{\frac{\pi}{4}}=8$$
-即以8点为一个周期进行循环
-```
-...
-  n = np.arange(-8,9)
-  y = np.sin(math.pi/4*n)
-...
-```
-![avatar](\Basic&#32;Sequence/fig/sine.png)
+官方教程
+https://www.scipy.org/getting-started.html
+
+#### Matplotlib - 图形绘制(Comprehensive 2-D plotting)
+官方网站
+https://matplotlib.org/
+
+官方教程
+https://matplotlib.org/tutorials/index.html
+
+#### Sympy - 符号运算(Symbolic mathematics)
+官方网站
+https://www.sympy.org/en/index.html
+
+官方教程
+https://docs.sympy.org/latest/tutorial/index.html
+
+#### Pandas - Numpy进阶(Data structures & analysis)
+官方网站
+https://pandas.pydata.org/
+
+官方教程
+https://pandas.pydata.org/docs/getting_started/10min.html
+
