@@ -6,33 +6,33 @@ Python 的numpy、scipy、matplotlib、sympy、pandas等库的组合使用，可
 https://numpy.org/
 
 官方教程
-https://numpy.org/devdocs/user/quickstart.html
+http://www.numpy.org/devdocs/user/
 
 #### Scipy - 科学计算(Fundamental library for scientific computing)
 官方网站
 https://www.scipy.org/
 
 官方教程
-https://www.scipy.org/getting-started.html
+http://docs.scipy.org/doc/scipy/reference/tutorial/index.html
 
 #### Matplotlib - 图形绘制(Comprehensive 2-D plotting)
 官方网站
 https://matplotlib.org/
 
 官方教程
-https://matplotlib.org/tutorials/index.html
+http://matplotlib.org/users/beginner.html
 
 #### Sympy - 符号运算(Symbolic mathematics)
 官方网站
 https://www.sympy.org/en/index.html
 
 官方教程
-https://docs.sympy.org/latest/tutorial/index.html
+http://docs.sympy.org/latest/tutorial/
 
 #### Pandas - Numpy进阶(Data structures & analysis)
 官方网站
 https://pandas.pydata.org/
 
 官方教程
-https://pandas.pydata.org/docs/getting_started/10min.html
+http://pandas.pydata.org/pandas-docs/stable/tutorials.html
 
