@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 #sequence number
-n = np.arange(-5,5)
+n = np.arange(-5,6)
 #default all zero
 y = np.zeros(np.size(n))
 
@@ -13,9 +13,10 @@ y[np.where(n>=0)] = 1
 
 #plt config
 plt.stem(n,y)
-plt.xticks(np.arange(-5,5))
+plt.xticks(np.arange(-5,6))
 plt.xlabel('n')
+plt.yticks([0,1])
 plt.ylabel('y')
-plt.title('unit_step seq')
+plt.title(r'$unit\ step\ seq\ u(n)$')
 
 plt.show()
