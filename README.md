@@ -11,6 +11,7 @@ $$\delta(n) =\begin{cases} 1& ,\ n=0\\ 0&,\ n\not ={0} \end{cases}$$
   y[np.where(n==0)] = 1
   ...
 ```
+![avatar](\Basic&#32;Sequence/fig/unit_sample.png)
 
 2.单位阶跃序列 $u(n)$
 $$u(n) = \begin{cases}1&,\ n \geq0\\0&,\ n<0\end{cases}$$
@@ -21,6 +22,7 @@ $$u(n) = \begin{cases}1&,\ n \geq0\\0&,\ n<0\end{cases}$$
   y[np.where(n>=0)] = 1
   ...
 ```
+![avatar](\Basic&#32;Sequence/fig/unit_step.png)
 
 3.正弦序列 $sin(n)$
 
@@ -35,3 +37,4 @@ $$\omega=\frac{2\pi}{\frac{\pi}{4}}=8$$
   y = np.sin(math.pi/4*n)
 ...
 ```
+![avatar](\Basic&#32;Sequence/fig/sine.png)
