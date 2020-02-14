@@ -12,3 +12,4 @@ plt.margins(0, 0.1)
 plt.grid(which='both', axis='both')
 plt.axvline(100, color='green')  # cutoff frequency
 plt.show()
+
