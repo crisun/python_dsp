@@ -1,6 +1,7 @@
 from scipy import signal
 import numpy as np
 import matplotlib.pyplot as plt
+import sys
 
 b, a = signal.butter(4, 100, 'low', analog=True)
 w, h = signal.freqs(b, a)
@@ -11,4 +12,5 @@ plt.ylabel('Amplitude [dB]')
 plt.margins(0, 0.1)
 plt.grid(which='both', axis='both')
 plt.axvline(100, color='green') # cutoff frequency
-plt.show()
+#plt.show()
+plt.savefig('/mnt/d/code/python/python_dsp/FIR Filter/fig/butt_demo')
