@@ -6,12 +6,15 @@ def myfft(xn, N):
     
     if N & (N - 1) != 0 or N < len(xn):
         print('Parameter Error')
-        print('Function: myifft(Xk, N)')
+        print('Function: myfft(xn, N)')
         print('Parameters')
-        print('Xk : array_like')
+        print('xn : array_like')
         print('     Input array, can be complex')
         print(' N : int, optional ')
         print('     The Number of sampling point in frequency domain')
+        print('return')
+        print('Xk : array_like')
+        print('   : Output array, complex')
         print('Tips')
         print('Usage: 1.N must be the power of 2')
         print('       2.N must be greater or equal to the length of xn')
@@ -54,9 +57,12 @@ def myifft(Xk, N):
         print('     Input array, can be complex')
         print(' N : int, optional ')
         print('     The Number of sampling point in frequency domain')
+        print('return')
+        print('xn : array_like')
+        print('   : Output array, complex')
         print('Tips')
         print('Usage: 1.N must be the power of 2')
-        print('       2.N must be greater or equal to the length of xn')
+        print('       2.N must be greater or equal to the length of Xk')
         return
     return  np.conj(myfft(np.conj(Xk),N))/N
 
