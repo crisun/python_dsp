@@ -5,11 +5,17 @@ import numpy as np
 def myfft(xn, N):
     
     if N & (N - 1) != 0 or N < len(xn):
-        print('Syntax Error!')
-        print('Function: myfft(xn, N)')
-        print('   Usage: 1.N must be the power of 2')
-        print('          2.N must be greater or equal to the length of xn')
-        return ;
+        print('Parameter Error')
+        print('Function: myifft(Xk, N)')
+        print('Parameters')
+        print('Xk : array_like')
+        print('     Input array, can be complex')
+        print(' N : int, optional ')
+        print('     The Number of sampling point in frequency domain')
+        print('Tips')
+        print('Usage: 1.N must be the power of 2')
+        print('       2.N must be greater or equal to the length of xn')
+        return 
 
     #add zero to the end of xn
     xn = np.append(xn, np.zeros(N - len(xn), dtype = int))
@@ -40,7 +46,19 @@ def myfft(xn, N):
     return Xk
 
 def myifft(Xk, N):
-   return  np.conj(myfft(np.conj(Xk),N))/N
+    if N & (N - 1) != 0 or N < len(Xk):
+        print('Parameter Error')
+        print('Function: myifft(Xk, N)')
+        print('Parameters')
+        print('Xk : array_like')
+        print('     Input array, can be complex')
+        print(' N : int, optional ')
+        print('     The Number of sampling point in frequency domain')
+        print('Tips')
+        print('Usage: 1.N must be the power of 2')
+        print('       2.N must be greater or equal to the length of xn')
+        return
+    return  np.conj(myfft(np.conj(Xk),N))/N
 
 def nextpow2(N):
     return  2**(math.ceil(np.log2(N)))
