@@ -1,7 +1,7 @@
 import math
 import numpy as np
 
-def myfft(xn, N=None):
+def myfft(xn, N = None):
     if N == None:
         N = nextpow2(len(xn))
     if ispow2(N) == False  or N < len(xn):
@@ -47,7 +47,9 @@ def myfft(xn, N=None):
                 Xk[b + start2] = Xk[b + start1] - Xk[b + start2] * (Wn**b) * 2
     return Xk
 
-def myifft(Xk, N):
+def myifft(Xk, N = None):
+    if N == None :
+        N = newpow2(len(Xk))
     if ispow2(N) == False or N < len(Xk):
         print('Parameter Error')
         print('Function: myifft(Xk, N)')
