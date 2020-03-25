@@ -1,5 +1,6 @@
 import sys
 import math
+import time
 import numpy as np
 
 def myfft(xn, N):
@@ -86,8 +87,7 @@ def dec2bin(num, N):
     return ''.join([str(x) for x in res[::-1]])
 
 if __name__ == '__main__':
-    a = np.array([1, 2, 3, 2, 1])	
-    print(a)
+    a = np.array([1, 1, 1, 1])	
     if len(sys.argv) == 1:
         N = nextpow2(len(a))
     else:
