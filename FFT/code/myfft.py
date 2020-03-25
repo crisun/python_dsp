@@ -2,6 +2,16 @@ import math
 import numpy as np
 
 def myfft(xn, N = None):
+    '''
+        Compute N-pt FFT using the given xn
+
+        parameters:
+        xn : array_like, input array, can be complex
+         N : int, optional, the Number of sampling point in frequency domain
+        
+        return:
+        Xk : array_like, output array, complex
+    '''
     if N == None:
         N = nextpow2(len(xn))
     if ispow2(N) == False  or N < len(xn):
@@ -48,6 +58,16 @@ def myfft(xn, N = None):
     return Xk
 
 def myifft(Xk, N = None):
+    '''
+        Compute N-pt IFFT using given Xk
+        
+        parameters:
+        Xk : array_like, input array, can be complex
+         N : int, optional, the Number of sampling point in frequency domain
+        
+        return:
+        xn : array_like, output array, complex
+    '''
     if N == None :
         N = nextpow2(len(Xk))
     if ispow2(N) == False or N < len(Xk):
@@ -68,12 +88,21 @@ def myifft(Xk, N = None):
     return  np.conj(myfft(np.conj(Xk), N)) / N
 
 def ispow2(N):
+    '''
+        Determine whether a number is power of 2
+    '''
     return (N & (N - 1)) == 0
 
 def nextpow2(N):
+    '''
+        Find next number of power of 2 
+    '''
     return  2**(math.ceil(np.log2(N)))
 
 def bin2dec(num):
+    '''
+        Binary -> Decimal
+    '''
     N = len(num)
     res = 0
     j = 0
@@ -83,6 +112,9 @@ def bin2dec(num):
     return res
 
 def dec2bin(num, N):
+    '''
+        Decimal -> Binary
+    '''
     res = []
     for i in range(int(math.log2(N))):
         num, rem = divmod(num, 2)
