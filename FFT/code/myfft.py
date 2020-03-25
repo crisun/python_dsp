@@ -49,7 +49,7 @@ def myfft(xn, N = None):
 
 def myifft(Xk, N = None):
     if N == None :
-        N = newpow2(len(Xk))
+        N = nextpow2(len(Xk))
     if ispow2(N) == False or N < len(Xk):
         print('Parameter Error')
         print('Function: myifft(Xk, N)')
