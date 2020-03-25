@@ -1,11 +1,10 @@
-import sys
 import math
-import time
 import numpy as np
 
-def myfft(xn, N):
-    
-    if N & (N - 1) != 0 or N < len(xn):
+def myfft(xn, N=None):
+    if N == None:
+        N = nextpow2(len(xn))
+    if ispow2(N) == False  or N < len(xn):
         print('Parameter Error')
         print('Function: myfft(xn, N)')
         print('Parameters')
@@ -22,35 +21,34 @@ def myfft(xn, N):
         return 
 
     #add zero to the end of xn
-    xn = np.append(xn, np.zeros(N - len(xn), dtype = int))
+    xn = np.append(xn, np.zeros(N - len(xn)))
     
-    #reverse order input
+    #bit-reverse order input
     Xk = np.array([], dtype = complex)
     for i in range(0, N):
-        a = bin2dec(dec2bin(i,N)[::-1])
+        a = bin2dec(dec2bin(i, N)[::-1])
         Xk = np.append(Xk, xn[a])
     
     #main loop
     levels = int(math.log2(N))          #the num of level
-    NumOfBS = int(N/2)                  #BS in each level
 
     for level in range(1, levels + 1):
-        NumOfGroup = int(N/(2**level))
+        NumOfGroup = int(N / (2**level))
         GroupInterval = 2**level
         BSInterval = 2**(level - 1)
-        Wn = np.exp(-1j*2*math.pi/GroupInterval)
+        Wn = np.exp(-1j * 2 * math.pi / GroupInterval)
 
         for g in range(NumOfGroup):
             start1 = g * GroupInterval
             start2 = g * GroupInterval + BSInterval
 
             for b in range(BSInterval):
-                Xk[b+start1] = Xk[b+start1] + Xk[b+start2]*(Wn**b)
-                Xk[b+start2] = Xk[b+start1] - Xk[b+start2]*(Wn**b)*2
+                Xk[b + start1] = Xk[b + start1] + Xk[b + start2] * (Wn**b)
+                Xk[b + start2] = Xk[b + start1] - Xk[b + start2] * (Wn**b) * 2
     return Xk
 
 def myifft(Xk, N):
-    if N & (N - 1) != 0 or N < len(Xk):
+    if ispow2(N) == False or N < len(Xk):
         print('Parameter Error')
         print('Function: myifft(Xk, N)')
         print('Parameters')
@@ -65,7 +63,10 @@ def myifft(Xk, N):
         print('Usage: 1.N must be the power of 2')
         print('       2.N must be greater or equal to the length of Xk')
         return
-    return  np.conj(myfft(np.conj(Xk),N))/N
+    return  np.conj(myfft(np.conj(Xk), N)) / N
+
+def ispow2(N):
+    return (N & (N - 1)) == 0
 
 def nextpow2(N):
     return  2**(math.ceil(np.log2(N)))
@@ -75,7 +76,7 @@ def bin2dec(num):
     res = 0
     j = 0
     for i in num:
-        res = res + int(i) * 2**(N-1-j)
+        res = res + int(i) * 2**(N - 1 - j)
         j += 1
     return res
 
@@ -86,13 +87,3 @@ def dec2bin(num, N):
         res.append(rem)
     return ''.join([str(x) for x in res[::-1]])
 
-if __name__ == '__main__':
-    a = np.array([1, 1, 1, 1])	
-    if len(sys.argv) == 1:
-        N = nextpow2(len(a))
-    else:
-        N = eval(sys.argv[1])
-    res =  myfft(a, N)
-    print(res)
-    ires = myifft(res, N)
-    print(ires)
